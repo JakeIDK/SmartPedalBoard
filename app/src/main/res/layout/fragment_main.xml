@@ -6,47 +6,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="#830B0B"
-        android:text="Smart Pedalboard"
+        android:text="@string/smart_pedalboard"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constrainedHeight_toLeftOf="parent"
-        app:layout_constrainedWidth_toRightOf="parent"
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBaseline_toTopOf="parent"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129" />
 
     <Button
         android:id="@+id/buttonCreate"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="235dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="80dp"
         android:background="@color/purple_500"
-        android:text="Create a Template"
-        app:layout_constrainedHeight_toLeftOf="parent"
-        app:layout_constrainedWidth_toRightOf="parent"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBaseline_toTopOf="parent"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="283dp" />
+        android:text="@string/create_a_template"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465" />
 
     <Button
         android:id="@+id/buttonSaved"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="236dp"
+        android:layout_height="134dp"
         android:background="@color/purple_500"
-        android:text="Saved Templates"
-        app:layout_constrainedHeight_toLeftOf="parent"
-        app:layout_constrainedWidth_toRightOf="parent"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBaseline_toTopOf="parent"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="464dp" />
+        android:text="@string/saved_templates"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

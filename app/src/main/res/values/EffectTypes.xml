@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name= "effect_types">
+        <item>Bit Crush</item>
+        <item>Booster</item>
+        <item>Clean</item>
+        <item>Delay</item>
+        <item>Distort</item>
+        <item>Fuzz</item>
+        <item>Octaver</item>
+        <item>Tremolo</item>
+    </string-array>
+</resources>

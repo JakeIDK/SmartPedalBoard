@@ -7,247 +7,133 @@
     tools:context=".CreateFragment"
     >
 
+    <TextView
+        android:id="@+id/textEffect7"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="288dp"
+        android:text="Effect 1"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <SeekBar
-        android:id="@+id/cleanBar3"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="72dp"
+        android:id="@+id/bar3"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="496dp"
+        android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/fuzzBar5"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="456dp"
-        android:layout_marginEnd="68dp"
+        android:id="@+id/bar4"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textFuzz5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginEnd="320dp"
-        android:text="Fuzz"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textFuzz6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginEnd="320dp"
-        android:text="Fuzz"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textBoost5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="296dp"
-        android:text="Booster"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textOct3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
-        android:layout_marginEnd="300dp"
-        android:text="Octaver"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textDistort5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="280dp"
-        android:text="Distortion"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="52dp"
-        android:text="Design Your Board!"
-        android:textSize="34sp"
-        android:textStyle="bold"
+    <Spinner
+        android:id="@+id/spinnerEffect4"
+        android:layout_width="270dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="292dp"
+        android:entries="@array/effect_types"
+        android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/distortBar5"
-        android:layout_width="166dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="240dp"
-        android:layout_marginEnd="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textDistort6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="280dp"
-        android:text="Distortion"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/fuzzBar6"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="456dp"
-        android:layout_marginEnd="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textTrem3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="608dp"
-        android:layout_marginEnd="296dp"
-        android:text="Tremolo"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonSave3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="664dp"
-        android:layout_marginEnd="156dp"
+        android:layout_width="124dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginEnd="144dp"
         android:background="#512DA8"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textClean3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="320dp"
-        android:text="Clean"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/octBar3"
-        android:layout_width="166dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="516dp"
-        android:layout_marginEnd="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/delayBar3"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/distortBar6"
-        android:layout_width="166dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="240dp"
-        android:layout_marginEnd="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textBoost6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="296dp"
-        android:text="Booster"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/crushBar5"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="392dp"
-        android:layout_marginEnd="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/crushBar6"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="392dp"
-        android:layout_marginEnd="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/boostBar3"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="312dp"
-        android:layout_marginEnd="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textCrush3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textEffect8"
+        android:layout_width="91dp"
+        android:layout_height="45dp"
         android:layout_marginTop="416dp"
-        android:layout_marginEnd="288dp"
-        android:text="Bit Crush"
+        android:layout_marginEnd="304dp"
+        android:text="Effect 1"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/tremBar3"
-        android:layout_width="166dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="588dp"
-        android:layout_marginEnd="68dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textDelay3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="320dp"
-        android:text="Delay"
+        android:id="@+id/textEffect9"
+        android:layout_width="87dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="532dp"
+        android:layout_marginEnd="308dp"
+        android:text="Effect 2"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textEffect10"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="288dp"
+        android:text="Effect 2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="308dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="68dp"
+        android:text="Design Your Board!"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerEffect5"
+        android:layout_width="270dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="196dp"
+        android:entries="@array/effect_types"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/EffectPc1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.601" />
+
+    <TextView
+        android:id="@+id/effectPc2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.771" />
 </androidx.constraintlayout.widget.ConstraintLayout>

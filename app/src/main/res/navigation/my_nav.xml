@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_createFragment"
             app:destination="@id/createFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/createFragment"
@@ -21,6 +24,18 @@
         tools:layout="@layout/fragment_create" >
         <action
             android:id="@+id/action_createFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_createFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.smartpedalboard.ProfileFragment"
+        android:label="fragment_profile_list"
+        tools:layout="@layout/fragment_profile_list" >
+        <action
+            android:id="@+id/action_profileFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

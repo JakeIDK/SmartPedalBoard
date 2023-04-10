@@ -3,7 +3,7 @@
     <string-array name= "effect_types">
         <item>Bit Crush</item>
         <item>Booster</item>
-        <item>Clean</item>
+        <item>Clean(No effect)</item>
         <item>Delay</item>
         <item>Distort</item>
         <item>Fuzz</item>

@@ -7,87 +7,39 @@
     tools:context=".CreateFragment"
     >
 
-    <TextView
-        android:id="@+id/textEffect7"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="288dp"
-        android:text="Effect 1"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/bar3"
-        android:layout_width="200dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="496dp"
-        android:layout_marginEnd="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SeekBar
-        android:id="@+id/bar4"
-        android:layout_width="200dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="388dp"
-        android:layout_marginEnd="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Spinner
-        android:id="@+id/spinnerEffect4"
+        android:id="@+id/spinnerEffect2"
         android:layout_width="270dp"
-        android:layout_height="55dp"
+        android:layout_height="80dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="400dp"
         android:entries="@array/effect_types"
         android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textEffect2"
+        android:layout_width="143dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="416dp"
+        android:layout_marginEnd="268dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text=" Effect 2"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/buttonSave3"
-        android:layout_width="124dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginEnd="144dp"
+        android:id="@+id/buttonSave"
+        android:layout_width="207dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="544dp"
+        android:layout_marginEnd="112dp"
         android:background="#512DA8"
         android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textEffect8"
-        android:layout_width="91dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="416dp"
-        android:layout_marginEnd="304dp"
-        android:text="Effect 1"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textEffect9"
-        android:layout_width="87dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="532dp"
-        android:layout_marginEnd="308dp"
-        android:text="Effect 2"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textEffect10"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="292dp"
-        android:layout_marginEnd="288dp"
-        android:text="Effect 2"
-        android:textSize="20sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,36 +56,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinnerEffect5"
+        android:id="@+id/spinnerEffect1"
         android:layout_width="270dp"
-        android:layout_height="55dp"
+        android:layout_height="80dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="268dp"
         android:entries="@array/effect_types"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/EffectPc1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0%"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/textEffect1"
+        android:layout_width="135dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="276dp"
+        android:layout_marginEnd="276dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text=" Effect 1"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.601" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/effectPc2"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="192dp"
+        android:text="Profile Name"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="225dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="180dp"
+        android:hint="Type Name Here!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

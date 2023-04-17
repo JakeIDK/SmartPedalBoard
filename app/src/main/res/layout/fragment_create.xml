@@ -90,6 +90,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textName"
         android:layout_width="225dp"
         android:layout_height="51dp"
         android:layout_marginStart="168dp"

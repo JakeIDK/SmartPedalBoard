@@ -41,14 +41,14 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val button1 = view.findViewById<Button>(R.id.buttonCreate);
-        val button2 = view.findViewById<Button>(R.id.buttonSaved);
+        val button1 = view.findViewById<Button>(R.id.buttonCreate)
+        val button2 = view.findViewById<Button>(R.id.buttonSaved)
         super.onViewCreated(view, savedInstanceState)
         button1.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_createFragment)
         }
         button2.setOnClickListener {
-            //Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_)
+            Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_profileFragment2)
         }
     }
 

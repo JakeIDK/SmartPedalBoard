@@ -14,8 +14,8 @@
             android:id="@+id/action_mainFragment_to_createFragment"
             app:destination="@id/createFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_mainFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
     </fragment>
     <fragment
         android:id="@+id/createFragment"
@@ -26,16 +26,12 @@
             android:id="@+id/action_createFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
         <action
-            android:id="@+id/action_createFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_createFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/profileFragment2"
         android:name="com.example.smartpedalboard.ProfileFragment"
-        android:label="fragment_profile_list"
-        tools:layout="@layout/fragment_profile_list" >
-        <action
-            android:id="@+id/action_profileFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

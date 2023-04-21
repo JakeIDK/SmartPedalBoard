@@ -34,4 +34,9 @@
         android:name="com.example.smartpedalboard.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/bluetoothFragment"
+        android:name="com.example.smartpedalboard.BluetoothFragment"
+        android:label="fragment_bluetooth"
+        tools:layout="@layout/fragment_bluetooth" />
 </navigation>

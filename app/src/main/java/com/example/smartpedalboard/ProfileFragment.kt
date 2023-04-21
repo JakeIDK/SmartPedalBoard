@@ -1,6 +1,12 @@
 package com.example.smartpedalboard
 
+import android.app.AlertDialog
+import android.bluetooth.BluetoothSocket
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,13 +15,12 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smartpedalboard.placeholder.ProfileAdapter
-import com.example.smartpedalboard.placeholder.ProfileClass
+import com.example.smartpedalboard.ProfileClasses.ProfileAdapter
+import com.example.smartpedalboard.ProfileClasses.ProfileClass
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -25,16 +30,13 @@ private const val ARG_PARAM2 = "param2"
 class ProfileFragment : Fragment() {
     private lateinit var sqliteHelper : ProfileClass
     private lateinit var recyclerView: RecyclerView
-    private var adapter: ProfileAdapter? = null
+    private lateinit var adapter: ProfileAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sqliteHelper = ProfileClass(requireActivity())
-
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        adapter = ProfileAdapter()
-        recyclerView.adapter = adapter
-        adapter?.setOnClickItem { Toast.makeText(requireActivity(),it.name, Toast.LENGTH_SHORT).show() }
+        initRecyclerView()
 
         arguments?.let {
         }
@@ -49,9 +51,30 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = view.findViewById<RecyclerView>(R.id.dbRecycler)
+        view.findViewById<RecyclerView>(R.id.dbRecycler).also { recyclerView = it }
         val save = view.findViewById<Button>(R.id.buttonSend)
-        val delete = view.findViewById<Button>(R.id.buttonDelete)
+        //val delete = view.findViewById<Button>(R.id.buttonDelete)
+    }
+    private fun initRecyclerView()
+    {
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        adapter = ProfileAdapter()
+        recyclerView.adapter = adapter
+        adapter?.setOnClickItem { Toast.makeText(requireActivity(),it.name, Toast.LENGTH_SHORT).show() }
+    }
+
+    private fun deleteProfile(id:Int)
+    {
+        if(id ==null) return
+        val builder = AlertDialog.Builder(requireActivity())
+        builder.setMessage("Want to delete?")
+        builder.setCancelable(true)
+        builder.setPositiveButton("Yes") { dialog,_->
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("No") { dialog,_->
+            dialog.dismiss()
+        }
     }
 
     companion object {
@@ -68,8 +91,8 @@ class ProfileFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             ProfileFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                  //  putString(ARG_PARAM1, param1)
+                  //  putString(ARG_PARAM2, param2)
                 }
             }
     }

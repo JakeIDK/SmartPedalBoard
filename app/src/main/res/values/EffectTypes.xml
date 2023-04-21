@@ -4,7 +4,6 @@
         <item>Clean(No effect)</item>
         <item>Delay</item>
         <item>Distort</item>
-        <item>Fuzz</item>
-        <item>Octaver</item>
+        <item>Tremelo</item>
     </string-array>
 </resources>

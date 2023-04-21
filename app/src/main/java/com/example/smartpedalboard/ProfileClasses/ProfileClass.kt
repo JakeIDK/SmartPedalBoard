@@ -1,11 +1,10 @@
-package com.example.smartpedalboard.placeholder
+package com.example.smartpedalboard.ProfileClasses
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.smartpedalboard.CreateFragment
 
 class ProfileClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION)
 {
@@ -14,16 +13,16 @@ class ProfileClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
         private const val DATABASE_VERSION = 1
         private const val DATABASE_NAME = "profiles.db"
         private const val TBL_PROFILE = "tbl_profile"
-        private const val ID = "id";
-        private const val NAME = "profile name"
+        private const val ID = "id"
+        private const val NAME = "name"
         private const val EFFECT1 = "effect1"
         private const val EFFECT2 = "effect2"
 
     }
 
     override fun onCreate(db:SQLiteDatabase?) {
-        val createTblProfile = ("CREATE TABLE " + TBL_PROFILE + "("+ ID +" INTEGER PRIMARY KEY,"
-                + NAME + " TEXT," + EFFECT1 + " TEXT,"+ EFFECT2 + " TEXT" + ")")
+        val createTblProfile = ("CREATE TABLE " + TBL_PROFILE + " ("+ ID +" INTEGER PRIMARY KEY,"
+                + NAME + " TEXT," + EFFECT1 + " TEXT,"+ EFFECT2 + " TEXT" + ");")
         db?.execSQL(createTblProfile)
     }
 
@@ -78,5 +77,17 @@ class ProfileClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, n
             } while (cursor.moveToNext())
         }
         return pfList
+    }
+    fun updateProfiles(pfd: ProfileModel):Int
+    {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(ID, pfd.id)
+        contentValues.put(NAME, pfd.name)
+        contentValues.put(EFFECT1, pfd.effect1)
+        contentValues.put(EFFECT2, pfd.effect2)
+        val success = db.update(TBL_PROFILE,contentValues,"id" +pfd.id,null )
+        db.close()
+        return success
     }
 }

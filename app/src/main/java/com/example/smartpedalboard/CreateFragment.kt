@@ -1,6 +1,13 @@
 package com.example.smartpedalboard
 
+import android.bluetooth.BluetoothSocket
+import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.provider.Settings.Global.putString
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +16,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.navigation.Navigation
-import com.example.smartpedalboard.placeholder.ProfileAdapter
-import com.example.smartpedalboard.placeholder.ProfileClass
-import com.example.smartpedalboard.placeholder.ProfileModel
+import com.example.smartpedalboard.ProfileClasses.ProfileAdapter
+import com.example.smartpedalboard.ProfileClasses.ProfileClass
+import com.example.smartpedalboard.ProfileClasses.ProfileModel
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
+import java.nio.file.Files.write
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,9 +39,23 @@ class CreateFragment : Fragment() {
     private lateinit var sEf2: Spinner
     private lateinit var sqliteHelper : ProfileClass
     private var adapter: ProfileAdapter? = null
+    private var pfd: ProfileModel? = null
+    private var send:BTservice.ConnectedThread? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sqliteHelper = ProfileClass(requireActivity())
+
+        sqliteHelper = ProfileClass(requireContext())
+
+
+        adapter?.setOnClickItem { Toast.makeText(requireActivity(),it.name, Toast.LENGTH_SHORT).show()
+            textName.setText(it.name)
+            //sEf1.setText(it.effect1)
+            //sEf2.setText(it.effect2)
+            pfd = it
+        }
+
         arguments?.let {
           //  param1 = it.getString(ARG_PARAM1)
            // param2 = it.getString(ARG_PARAM2)
@@ -58,7 +82,7 @@ class CreateFragment : Fragment() {
         val effect1 = sEf1.selectedItem.toString()
         val effect2 = sEf2.selectedItem.toString()
 
-        if(name.isEmpty() || effect1.isEmpty() || effect2.isEmpty())
+        if(name.isEmpty())
         {
             Toast.makeText(this.context,"Don't Forget A Name!",Toast.LENGTH_SHORT).show()
         }
@@ -68,7 +92,8 @@ class CreateFragment : Fragment() {
             val status = sqliteHelper.insertProfile(pf)
             if(status > -1) {
                 Toast.makeText(this.context,"Profile Created!!",Toast.LENGTH_SHORT).show()
-                getProfiles()
+                textName.text.clear()
+
             }
             else{
                 Toast.makeText(this.context,"Profile not created...",Toast.LENGTH_SHORT).show()
@@ -84,11 +109,35 @@ class CreateFragment : Fragment() {
         val button1 = view.findViewById<Button>(R.id.buttonSave)
         super.onViewCreated(view, savedInstanceState)
         button1.setOnClickListener {
-            addProfile()
+           /* addProfile()
+           // getProfiles()
             Navigation.findNavController(view).navigate(R.id.action_createFragment_to_profileFragment2)
+            */
+             sendData()
         }
     }
-    companion object {
+    private fun sendData()
+    {
+        var data = byteArrayOf(0,0)
+        when(sEf1.selectedItem.toString())
+        {
+            "Clean(No effect)"-> data[0] = 1
+            "Delay"-> data[0] = 2
+            "Distort"-> data[0] = 3
+            "Tremelo"-> data[0] = 4
+        }
+        when(sEf2.selectedItem.toString())
+        {
+            "Clean(No effect)"-> data[1] = 1
+            "Delay"-> data[1] = 2
+            "Distort"-> data[1] = 3
+            "Tremelo"-> data[1] = 4
+        }
+        send!!.write(data)
+    }
+
+
+        companion object {
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
@@ -108,3 +157,4 @@ class CreateFragment : Fragment() {
             }
     }
 }
+

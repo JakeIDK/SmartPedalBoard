@@ -1,4 +1,4 @@
-package com.example.smartpedalboard.placeholder
+package com.example.smartpedalboard.ProfileClasses
 
 import java.util.ArrayList
 import java.util.HashMap

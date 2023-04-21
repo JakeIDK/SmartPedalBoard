@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/ProfileView"
         android:layout_width="133dp"
         android:layout_height="52dp"
         android:layout_marginTop="32dp"
@@ -23,22 +23,10 @@
         android:id="@+id/buttonSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="648dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="656dp"
         android:background="#512DA8"
         android:text="Send"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="648dp"
-        android:background="#512DA8"
-        android:text="Delete"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

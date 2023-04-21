@@ -1,8 +1,8 @@
-package com.example.smartpedalboard.placeholder
+package com.example.smartpedalboard.ProfileClasses
 import java.util.*
 data class ProfileModel(
     var id: Int = getAutoId(),
-    var name: String = " ",
+    var name: String = "",
     var effect1: String = "",
     var effect2: String = ""){
       companion object {

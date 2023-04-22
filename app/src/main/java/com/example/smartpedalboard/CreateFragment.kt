@@ -2,12 +2,11 @@ package com.example.smartpedalboard
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
+import android.content.Context
+import android.content.Context.WIFI_SERVICE
+import android.net.wifi.WifiManager
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +14,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.example.smartpedalboard.ProfileClasses.ProfileAdapter
 import com.example.smartpedalboard.ProfileClasses.ProfileClass
 import com.example.smartpedalboard.ProfileClasses.ProfileModel
 import java.util.UUID
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,8 +45,10 @@ class CreateFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sqliteHelper = ProfileClass(requireContext())
+        val manager = context?.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val info = manager.connectionInfo
         val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
-        var device = mBluetoothAdapter.getRemoteDevice("02:00:00:00:00:00")
+        var device = mBluetoothAdapter.getRemoteDevice(info.macAddress.toUpperCase())
         var mmSocket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
         send = BTservice().ConnectedThread(mmSocket)
         adapter?.setOnClickItem { Toast.makeText(requireActivity(),it.name, Toast.LENGTH_SHORT).show()

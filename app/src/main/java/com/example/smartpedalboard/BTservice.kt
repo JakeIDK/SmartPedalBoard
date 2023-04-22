@@ -1,17 +1,23 @@
 package com.example.smartpedalboard
 
+import android.annotation.SuppressLint
+import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothSocket
 import android.content.ContentValues
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
+import java.util.UUID
 
-    class BTservice(private val handler: Handler) {
+class BTservice() {
+    val handler = Handler(Looper.getMainLooper())
 
-        inner class ConnectedThread(private val mmSocket: BluetoothSocket) : Thread() {
+        @SuppressLint("MissingPermission")
+        inner class ConnectedThread(val mmSocket: BluetoothSocket) : Thread() {
             private val MESSAGE_READ: Int = 0
             private val MESSAGE_WRITE: Int = 1
             private val MESSAGE_TOAST: Int = 2
@@ -20,7 +26,6 @@ import java.io.OutputStream
             private val mmBuffer: ByteArray = ByteArray(1024) // mmBuffer store for the stream
 
             // Call this from the main activity to send data to the remote device.
-
             fun write(bytes: ByteArray) {
                 try {
                     mmOutStream.write(bytes)

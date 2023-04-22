@@ -1,14 +1,13 @@
 package com.example.smartpedalboard
 
+import android.annotation.SuppressLint
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings.Global.putString
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,13 +15,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.smartpedalboard.ProfileClasses.ProfileAdapter
 import com.example.smartpedalboard.ProfileClasses.ProfileClass
 import com.example.smartpedalboard.ProfileClasses.ProfileModel
-import java.io.IOException
-import java.io.InputStream
-import java.io.OutputStream
-import java.nio.file.Files.write
+import java.util.UUID
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,15 +37,17 @@ class CreateFragment : Fragment() {
     private lateinit var sqliteHelper : ProfileClass
     private var adapter: ProfileAdapter? = null
     private var pfd: ProfileModel? = null
-    private var send:BTservice.ConnectedThread? = null
+    private lateinit var mmSocket: BluetoothSocket
+    private lateinit var send: BTservice.ConnectedThread
 
-
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         sqliteHelper = ProfileClass(requireContext())
-
-
+        val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
+        var device = mBluetoothAdapter.getRemoteDevice("02:00:00:00:00:00")
+        var mmSocket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
+        send = BTservice().ConnectedThread(mmSocket)
         adapter?.setOnClickItem { Toast.makeText(requireActivity(),it.name, Toast.LENGTH_SHORT).show()
             textName.setText(it.name)
             //sEf1.setText(it.effect1)
@@ -102,6 +101,7 @@ class CreateFragment : Fragment() {
         }
 
     }
+    @SuppressLint("MissingPermission")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         textName = view.findViewById<EditText>(R.id.textName)
         sEf1 = view.findViewById<Spinner>(R.id.spinnerEffect1)
@@ -119,6 +119,7 @@ class CreateFragment : Fragment() {
     private fun sendData()
     {
         var data = byteArrayOf(0,0)
+
         when(sEf1.selectedItem.toString())
         {
             "Clean(No effect)"-> data[0] = 1

@@ -16,7 +16,6 @@ import java.util.UUID
 class BTservice() {
     val handler = Handler(Looper.getMainLooper())
 
-        @SuppressLint("MissingPermission")
         inner class ConnectedThread(val mmSocket: BluetoothSocket) : Thread() {
             private val MESSAGE_READ: Int = 0
             private val MESSAGE_WRITE: Int = 1

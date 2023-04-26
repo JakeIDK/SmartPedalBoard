@@ -1,11 +1,6 @@
 package com.example.smartpedalboard
 
 import android.annotation.SuppressLint
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothSocket
-import android.content.Context
-import android.content.Context.WIFI_SERVICE
-import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,12 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
-import com.example.smartpedalboard.ProfileClasses.ProfileAdapter
-import com.example.smartpedalboard.ProfileClasses.ProfileClass
-import com.example.smartpedalboard.ProfileClasses.ProfileModel
-import java.util.UUID
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,22 +25,15 @@ class CreateFragment : Fragment() {
     private lateinit var textName: EditText
     private lateinit var sEf1: Spinner
     private lateinit var sEf2: Spinner
-    private lateinit var sqliteHelper : ProfileClass
-    private var adapter: ProfileAdapter? = null
-    private var pfd: ProfileModel? = null
-    private lateinit var mmSocket: BluetoothSocket
+    private lateinit var sqliteHelper : com.example.smartpedalboard.ProfileClasses.ProfileClass
+    private var adapter: com.example.smartpedalboard.ProfileClasses.ProfileAdapter? = null
+    private var pfd: com.example.smartpedalboard.ProfileClasses.ProfileModel? = null
     private lateinit var send: BTservice.ConnectedThread
 
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sqliteHelper = ProfileClass(requireContext())
-        val manager = context?.getSystemService(Context.WIFI_SERVICE) as WifiManager
-        val info = manager.connectionInfo
-        val mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
-        var device = mBluetoothAdapter.getRemoteDevice(info.macAddress.toUpperCase())
-        var mmSocket = device.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"))
-        send = BTservice().ConnectedThread(mmSocket)
+        //send = BTservice().ConnectedThread(mmSocket)
         adapter?.setOnClickItem { Toast.makeText(requireActivity(),it.name, Toast.LENGTH_SHORT).show()
             textName.setText(it.name)
             //sEf1.setText(it.effect1)
@@ -90,7 +73,11 @@ class CreateFragment : Fragment() {
         }
         else
         {
-            val pf = ProfileModel(name = name, effect1 = effect1, effect2 = effect2)
+            val pf = com.example.smartpedalboard.ProfileClasses.ProfileModel(
+                name = name,
+                effect1 = effect1,
+                effect2 = effect2
+            )
             val status = sqliteHelper.insertProfile(pf)
             if(status > -1) {
                 Toast.makeText(this.context,"Profile Created!!",Toast.LENGTH_SHORT).show()
@@ -109,7 +96,7 @@ class CreateFragment : Fragment() {
         textName = view.findViewById<EditText>(R.id.textName)
         sEf1 = view.findViewById<Spinner>(R.id.spinnerEffect1)
         sEf2 = view.findViewById<Spinner>(R.id.spinnerEffect2)
-        val button1 = view.findViewById<Button>(R.id.buttonSave)
+        val button1 = view.findViewById<Button>(R.id.btnSave)
         super.onViewCreated(view, savedInstanceState)
         button1.setOnClickListener {
            /* addProfile()
